@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Teacher Portal</h2>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <header>
+                <h1>Student Performance Overview</h1>
+            </header>
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Students</h3>
+                    <p class="stat" id="totalStudents">0</p>
+                </div>
+                <div class="card">
+                    <h3>Below Target</h3>
+                    <p class="stat alert" id="belowTarget">0</p>
+                </div>
+            </div>
+            <div class="card">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Subject</th>
+                            <th>Target Marks</th>
+                            <th>Actual Marks</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if (localStorage.getItem('role') !== 'teacher') {
+            window.location.href = 'index.html';
+        }
+        loadTeacherDashboard();
+    </script>
+</body>
+</html>

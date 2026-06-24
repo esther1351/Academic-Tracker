@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Student Portal</h2>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="index.html" onclick="logout()">Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <header>
+                <h1>My Performance</h1>
+            </header>
+            <div id="subjectsContainer" class="cards-grid"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if (localStorage.getItem('role') !== 'student') {
+            window.location.href = 'index.html';
+        }
+        loadStudentDashboard();
+    </script>
+</body>
+</html>
